@@ -1,7 +1,7 @@
 {
 	"name": "Sand Tray Tracing",
 	"short_name": "Sand Tray Tracing",
-	"description": "",
+	"description": "This is a sand tray tracing game for kids.",
 	"start_url": "index.html",
 	"display": "fullscreen",
 	"orientation": "landscape",
