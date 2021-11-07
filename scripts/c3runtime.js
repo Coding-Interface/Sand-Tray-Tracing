@@ -4027,7 +4027,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Exps.Y,
 		C3.Plugins.System.Cnds.IsGroupActive,
 		C3.Plugins.Mouse.Cnds.IsButtonDown,
-		C3.Plugins.Touch.Cnds.IsTouchingObject,
+		C3.Plugins.Sprite.Cnds.IsOverlapping,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Plugins.Sprite.Acts.SetPos,
@@ -4036,13 +4036,11 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Mouse.Exps.Y,
 		C3.Plugins.DrawingCanvas.Exps.Height,
 		C3.Plugins.Mouse.Cnds.OnRelease,
-		C3.Plugins.Particles.Acts.SetPos,
-		C3.Plugins.Particles.Acts.SetVisible,
 		C3.Plugins.Touch.Cnds.OnNthTouchStart,
+		C3.Plugins.Touch.Cnds.IsTouchingObject,
 		C3.Plugins.Touch.Exps.X,
 		C3.Plugins.Touch.Exps.Y,
 		C3.Plugins.Touch.Cnds.OnNthTouchEnd,
-		C3.Plugins.Sprite.Cnds.IsOverlapping,
 		C3.Plugins.DrawingCanvas.Acts.Line,
 		C3.Plugins.System.Exps.rgba,
 		C3.Plugins.System.Cnds.Compare,
@@ -4249,7 +4247,6 @@ self.C3_ExpressionFuncs = [
 			const n3 = p._GetNode(3);
 			return () => C3.clamp(f0(), v1.GetValue(), (v2.GetValue() + n3.ExpObject()));
 		},
-		() => 1000,
 		() => 0,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -4281,8 +4278,10 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "UI",
 		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject(1);
+			const v0 = p._GetNode(0).GetVar();
+			const n1 = p._GetNode(1);
+			const f2 = p._GetNode(2).GetBoundMethod();
+			return () => ((((v0.GetValue()) === (0) ? 1 : 0)) ? (n1.ExpObject(1)) : (f2()));
 		},
 		p => {
 			const n0 = p._GetNode(0);
